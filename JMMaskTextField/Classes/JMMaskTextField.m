@@ -1,23 +1,23 @@
 //
-//  JMMastTextField.m
+//  JMMaskTextField.m
 //  JMMaskTextField
 //
 //  Created by Jota Melo on 02/01/17.
 //  Copyright © 2017 Jota. All rights reserved.
 //
 
-#import "JMMastTextField.h"
+#import "JMMaskTextField.h"
 
 #import "JMStringMask.h"
 
-@interface JMMastTextField () <UITextFieldDelegate>
+@interface JMMaskTextField () <UITextFieldDelegate>
 
 @property (weak, nonatomic) id<UITextFieldDelegate> realDelegate;
 @property (strong, nonatomic, readwrite) JMStringMask *mask;
 
 @end
 
-@implementation JMMastTextField
+@implementation JMMaskTextField
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -125,7 +125,7 @@
     // if the cursor is not at the end and the string hasn't changed
     // it means the user tried to delete a mask character, so we'll
     // change the range to include the character right before it
-    if ([formattedString isEqualToString:currentText] && range.location < currentText.length) {
+    if ([formattedString isEqualToString:currentText] && range.location < currentText.length && range.location > 0) {
         return [self textField:textField shouldChangeCharactersInRange:NSMakeRange(range.location - 1, range.length + 1) replacementString:string];
     }
     

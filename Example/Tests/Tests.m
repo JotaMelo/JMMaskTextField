@@ -8,27 +8,60 @@
 
 @import XCTest;
 
+#import <JMMaskTextField/JMStringMask.h>
+#import <JMMaskTextField/JMMaskTextField.h>
+
 @interface Tests : XCTestCase
 
 @end
 
 @implementation Tests
 
-- (void)setUp
+- (void)testStringMask
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    JMStringMask *mask = [JMStringMask initWithMask:@"00000-000"];
+    
+    XCTAssertEqualObjects([mask maskString:@"abcbe-343"], nil);
+    XCTAssertEqualObjects([mask maskString:@"30310360"], @"30310-360");
+    XCTAssertEqualObjects([mask maskString:@"30310-360"], @"30310-360");
+    XCTAssertEqualObjects([mask maskString:@"303103600"], nil);
+    XCTAssertEqualObjects([mask maskString:nil], nil);
+    
+    mask = [JMStringMask initWithMask:@"AAA-0000"];
+    XCTAssertEqualObjects([mask maskString:@"123-EIEIEEIE"], nil);
+    XCTAssertEqualObjects([mask maskString:@"ETO1192"], @"ETO-1192");
+    XCTAssertEqualObjects([mask maskString:@"ETO-1192"], @"ETO-1192");
+    XCTAssertEqualObjects([mask maskString:@"ETO11922"], nil);
 }
 
-- (void)tearDown
+- (void)testTextFieldMask
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    JMMaskTextField<UITextFieldDelegate> *textField = (JMMaskTextField<UITextFieldDelegate> *)[JMMaskTextField new];
+    [textField becomeFirstResponder];
+    textField.selectedTextRange = [textField textRangeFromPosition:textField.beginningOfDocument toPosition:textField.beginningOfDocument];
+    textField.maskString = @"00000-000";
+    
+    // pasting
+    [textField textField:textField shouldChangeCharactersInRange:NSMakeRange(0, 0) replacementString:@"30310-360"];
+    XCTAssertEqualObjects(textField.text, @"30310-360");
+    
+    textField.text = @"";
+    
+    // pasting unformatted
+    [textField textField:textField shouldChangeCharactersInRange:NSMakeRange(0, 0) replacementString:@"30310360"];
+    XCTAssertEqualObjects(textField.text, @"30310-360");
+    
+    textField.text = @"";
+    
+    // pasting invalid
+    [textField textField:textField shouldChangeCharactersInRange:NSMakeRange(0, 0) replacementString:@"30310-3600"];
+    XCTAssertEqual(textField.text.length, 0);
+    
+    textField.text = @"30310-360";
+    
+    // deleting from middle
+    [textField textField:textField shouldChangeCharactersInRange:NSMakeRange(2, 1) replacementString:@""];
+    XCTAssertEqualObjects(textField.text, @"30103-60");
 }
 
 @end

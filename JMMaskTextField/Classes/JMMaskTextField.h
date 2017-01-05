@@ -1,5 +1,5 @@
 //
-//  JMMastTextField.h
+//  JMMaskTextField.h
 //  JMMaskTextField
 //
 //  Created by Jota Melo on 02/01/17.
@@ -11,7 +11,7 @@
 #import "JMStringMask.h"
 
 IB_DESIGNABLE
-@interface JMMastTextField : UITextField
+@interface JMMaskTextField : UITextField
 
 @property (strong, nonatomic) IBInspectable NSString *maskString;
 @property (strong, nonatomic, readonly) JMStringMask *mask;

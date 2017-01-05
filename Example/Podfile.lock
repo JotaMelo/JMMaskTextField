@@ -1,0 +1,16 @@
+PODS:
+  - JMMaskTextField (0.1.0)
+
+DEPENDENCIES:
+  - JMMaskTextField (from `../`)
+
+EXTERNAL SOURCES:
+  JMMaskTextField:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JMMaskTextField: ceb969a49a313663a041c6413a0284d921f65ba4
+
+PODFILE CHECKSUM: 20ce40da8eecb62c232aa8df30134c359d5ae79f
+
+COCOAPODS: 1.1.1
