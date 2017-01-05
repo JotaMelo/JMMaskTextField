@@ -24,6 +24,11 @@ So for a Brazilian license plate, which has 3 letters, a dash and then 4 numbers
 You can install ```JMMaskTextField``` with [CocoaPods](http://cocoapods.org)
 
 * Add this line to your Podfile ```pod "JMMaskTextField"```
+* Run ```pod install```
+
+### Manual
+
+Just drop the JMMaskTextField folder in your project and you're all set!
 
 ## Usage
 
