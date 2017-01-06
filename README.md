@@ -1,6 +1,6 @@
 # JMMaskTextField
 
-[![CI Status](http://img.shields.io/travis/JotaMelo/JMMaskTextField.svg?style=flat)](https://travis-ci.org/Jota Melo/JMMaskTextField)
+[![CI Status](http://img.shields.io/travis/JotaMelo/JMMaskTextField.svg?style=flat)](https://travis-ci.org/JotaMelo/JMMaskTextField)
 [![Version](https://img.shields.io/cocoapods/v/JMMaskTextField.svg?style=flat)](http://cocoapods.org/pods/JMMaskTextField)
 [![License](https://img.shields.io/cocoapods/l/JMMaskTextField.svg?style=flat)](http://cocoapods.org/pods/JMMaskTextField)
 [![Platform](https://img.shields.io/cocoapods/p/JMMaskTextField.svg?style=flat)](http://cocoapods.org/pods/JMMaskTextField)
@@ -16,6 +16,8 @@ I never found anything that simple on iOS. Some libs required you to write a reg
 So for a Brazilian license plate, which has 3 letters, a dash and then 4 numbers, the mask would be: ```AAA-0000```.
 
 ```JMMaskTextField``` also handles pasting, inserting and deleting from the middle.
+
+There's also a [Swift version](https://github.com/JotaMelo/JMMaskTextField-Swift)
 
 ## Installation
 
