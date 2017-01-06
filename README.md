@@ -1,6 +1,6 @@
 # JMMaskTextField
 
-[![CI Status](http://img.shields.io/travis/Jota Melo/JMMaskTextField.svg?style=flat)](https://travis-ci.org/Jota Melo/JMMaskTextField)
+[![CI Status](http://img.shields.io/travis/JotaMelo/JMMaskTextField.svg?style=flat)](https://travis-ci.org/Jota Melo/JMMaskTextField)
 [![Version](https://img.shields.io/cocoapods/v/JMMaskTextField.svg?style=flat)](http://cocoapods.org/pods/JMMaskTextField)
 [![License](https://img.shields.io/cocoapods/l/JMMaskTextField.svg?style=flat)](http://cocoapods.org/pods/JMMaskTextField)
 [![Platform](https://img.shields.io/cocoapods/p/JMMaskTextField.svg?style=flat)](http://cocoapods.org/pods/JMMaskTextField)
